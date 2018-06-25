@@ -125,6 +125,51 @@
           }
         }
       }
+    },
+    "calcite-angular": {
+      "root": "projects/calcite-angular",
+      "sourceRoot": "projects/calcite-angular/src",
+      "projectType": "library",
+      "prefix": "calcite",
+      "schematics": {
+        "@schematics/angular:component": {
+          "styleext": "scss"
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/calcite-angular/tsconfig.lib.json",
+            "project": "projects/calcite-angular/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/calcite-angular/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/calcite-angular/src/test.ts",
+            "tsConfig": "projects/calcite-angular/tsconfig.spec.json",
+            "karmaConfig": "projects/calcite-angular/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/calcite-angular/tsconfig.lib.json",
+              "projects/calcite-angular/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "calcite-angular-app"

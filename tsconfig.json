@@ -15,6 +15,14 @@
     "lib": [
       "es2017",
       "dom"
-    ]
+    ],
+    "paths": {
+      "calcite-angular": [
+        "dist/calcite-angular"
+      ],
+      "calcite-angular/*": [
+        "dist/calcite-angular/*"
+      ]
+    }
   }
 }

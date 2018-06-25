@@ -1,0 +1,67 @@
+@import "~calcite-web/dist/sass/calcite-web.scss";
+
+.calcite-tooltip {
+  position: relative;
+  padding: $baseline/4 $baseline/2;
+  @include font-size(-2);
+  color: $white;
+  text-align: center;
+  word-wrap: break-word;
+  white-space: pre;
+  pointer-events: none;
+  background: $transparent-black;
+  border-radius: 3px;
+  box-sizing: border-box;
+
+  .calcite-tooltip-arrow {
+    content: "";
+    width: 0;
+    height: 0;
+    color: $transparent-black;
+    pointer-events: none;
+    border: 5px solid transparent;
+    position: absolute;
+  }
+}
+
+.calcite-tooltip-top {
+  top: -5px;
+
+  .calcite-tooltip-arrow {
+    top: 100%;
+    left: 50%;
+    border-top-color: rgba(0, 0, 0, 0.75);
+  }
+}
+
+.calcite-tooltip-bottom {
+  top: 5px;
+
+  .calcite-tooltip-arrow {
+    top: 0%;
+    left: 50%;
+    margin-top: -10px;
+    border-bottom-color: $transparent-black;
+  }
+}
+
+.calcite-tooltip-left {
+  left: -5px;
+
+  .calcite-tooltip-arrow {
+    top: 50%;
+    left: 100%;
+    border-left-color: rgba(0, 0, 0, 0.75);
+  }
+}
+
+.calcite-tooltip-right {
+  left: 5px;
+
+  .calcite-tooltip-arrow {
+    top: 50%;
+    left: 0%;
+    margin-left: -10px;
+    border-right-color: rgba(0, 0, 0, 0.75);
+  }
+}
