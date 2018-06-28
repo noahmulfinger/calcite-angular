@@ -18,6 +18,7 @@ import { DOCUMENT } from "@angular/common";
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CalciteCopyableTextComponent {
+  @Input() value: string = "";
   @Input() inputId: string;
   @Input() compact: boolean = false;
   @Input() tooltipString: string = "Click to Copy";
@@ -26,18 +27,12 @@ export class CalciteCopyableTextComponent {
 
   @ViewChild("inputElement") inputElement: ElementRef;
   @ViewChild("copyElement") copyElement: ElementRef;
-  @ViewChild("textElement") textElement: ElementRef;
 
   tooltip: string = this.tooltipString;
   active: boolean = false;
   copying: boolean = false;
-  text: string = "";
 
   constructor(@Inject(DOCUMENT) private document: any) {}
-
-  ngOnInit() {
-    this.text = this.textElement.nativeElement.textContent;
-  }
 
   @HostListener("blur")
   onBlur() {

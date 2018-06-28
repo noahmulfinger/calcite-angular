@@ -3,8 +3,5 @@
   "dest": "../../dist/calcite-angular",
   "lib": {
     "entryFile": "src/public_api.ts"
-  },
-  "whitelistedNonPeerDependencies": [
-    "calcite-web"
-  ]
+  }
 }

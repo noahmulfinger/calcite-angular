@@ -1,9 +1,7 @@
 <div class="input-group" [ngClass]="{'input-group-compact': compact}">
-  <input [id]="inputId || ''" #inputElement class="input-group-input" type="text" readonly [value]="text">
-  <input #copyElement type="text" class="input-copy-element" tabindex="-1" readonly [value]="text">
+  <input [id]="inputId || ''" #inputElement class="input-group-input" type="text" readonly [value]="value">
+  <input #copyElement type="text" class="input-copy-element" tabindex="-1" readonly [value]="value">
   <button [class]="'input-group-button tooltip ' + tooltipDir + ' btn'" [attr.aria-label]="tooltip" aria-live="polite" (click)="copyToClipboard()" >
     <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><polygon points="9.62 12.27 6.81 9.46 9.62 6.65 10.32 7.35 8.68 9 16 9 16 10 8.77 10 10.32 11.56 9.62 12.27"/><path class="cls-1" d="M7,7H3V6H7ZM5,9H3v1H5Zm2,3H3v1H7Zm6-1v5H1V2H3V1H5.28A2,2,0,0,1,8.72,1H11V2h2V8H12V3H11V4H3V3H2V15H12V11ZM4,3h6V2H8V1.68A.68.68,0,0,0,7.32,1H6.68A.68.68,0,0,0,6,1.68V2H4Z"/></svg>
   </button>
 </div>
-
-<span #textElement hidden="true" aria-hidden="true"><ng-content></ng-content></span>
