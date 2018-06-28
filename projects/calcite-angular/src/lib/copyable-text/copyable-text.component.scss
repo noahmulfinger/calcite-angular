@@ -1,0 +1,62 @@
+.input-group {
+  align-items: stretch;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.input-group-input {
+  letter-spacing: 0;
+  font-family: "Consolas", "Andale Mono", "Lucida Console", "Monaco", monospace;
+  font-weight: 400;
+  font-style: normal;
+  flex: 1 1 auto;
+  height: auto;
+  margin: 0;
+}
+
+.input-group-button {
+  flex: 0 0 auto;
+  height: auto;
+  width: auto;
+  margin: 0;
+}
+
+.input-copy-element {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+  height: auto;
+  width: auto;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  line-height: 0;
+}
+
+.input-group-compact {
+  margin-top: 0;
+
+  .input-group-input {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+
+  .btn {
+    background: none;
+    color: #0079c1;
+    border: none;
+    &:hover {
+      color: #005e95;
+      background: none;
+      text-decoration: underline;
+    }
+
+    padding: 1.5rem/5 * 0.75 0.9rem * 0.75;
+  }
+}

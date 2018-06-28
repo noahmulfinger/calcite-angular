@@ -3,4 +3,4 @@
  */
 
 export * from './lib/calcite-angular.module';
-export * from "./lib/tooltip/tooltip.directive"
+export * from "./lib/copyable-text/copyable-text.component";
