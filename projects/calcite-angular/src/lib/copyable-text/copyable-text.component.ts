@@ -17,7 +17,7 @@ import { DOCUMENT } from "@angular/common";
   styleUrls: ["./copyable-text.component.scss"],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CopyableTextComponent {
+export class CalciteCopyableTextComponent {
   @Input() inputId: string;
   @Input() compact: boolean = false;
   @Input() tooltipString: string = "Click to Copy";

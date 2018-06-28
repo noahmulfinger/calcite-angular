@@ -1,4 +1,9 @@
-# CalciteAngularApp
+# Calcite Angular
+
+Run `npm run build:lib` to build library. Then run `ng serve` to run the app that tests the library. The library will have to be rebuilt any time changes are made.
+
+
+# Using Angular CLI 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
 
