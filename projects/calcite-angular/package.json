@@ -5,5 +5,8 @@
     "@angular/common": "^6.0.0",
     "@angular/core": "^6.0.0",
     "calcite-web": "git+https://git@github.com/Esri/calcite-web.git#v1.0.2"
+  },
+  "dependencies": {
+    "calcite-web": "git+https://git@github.com/Esri/calcite-web.git#v1.0.2"
   }
 }

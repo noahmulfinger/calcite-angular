@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CopyableTextComponent } from './copyable-text.component';
+import { CalciteCopyableTextComponent } from './copyable-text.component';
 
 describe('CopyableTextComponent', () => {
-  let component: CopyableTextComponent;
-  let fixture: ComponentFixture<CopyableTextComponent>;
+  let component: CalciteCopyableTextComponent;
+  let fixture: ComponentFixture<CalciteCopyableTextComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CopyableTextComponent ]
+      declarations: [ CalciteCopyableTextComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CopyableTextComponent);
+    fixture = TestBed.createComponent(CalciteCopyableTextComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

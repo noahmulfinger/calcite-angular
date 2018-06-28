@@ -6,17 +6,18 @@ import {
   Output,
   EventEmitter,
   ViewChild,
-  ElementRef
+  ElementRef,
+  ChangeDetectionStrategy
 } from "@angular/core";
 import { DOCUMENT } from "@angular/common";
 
 @Component({
   selector: "calcite-copyable-text",
   templateUrl: "./copyable-text.component.html",
-  styleUrls: ["./copyable-text.component.scss"]
+  styleUrls: ["./copyable-text.component.scss"],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CopyableTextComponent {
-  @Input() value: string;
   @Input() inputId: string;
   @Input() compact: boolean = false;
   @Input() tooltipString: string = "Click to Copy";
@@ -25,12 +26,18 @@ export class CopyableTextComponent {
 
   @ViewChild("inputElement") inputElement: ElementRef;
   @ViewChild("copyElement") copyElement: ElementRef;
+  @ViewChild("textElement") textElement: ElementRef;
 
   tooltip: string = this.tooltipString;
   active: boolean = false;
   copying: boolean = false;
+  text: string = "";
 
   constructor(@Inject(DOCUMENT) private document: any) {}
+
+  ngOnInit() {
+    this.text = this.textElement.nativeElement.textContent;
+  }
 
   @HostListener("blur")
   onBlur() {
