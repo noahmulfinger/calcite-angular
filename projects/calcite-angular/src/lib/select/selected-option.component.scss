@@ -1,0 +1,42 @@
+@import "../../../../../node_modules/calcite-web/dist/sass/calcite-web/imports";
+
+:host {
+  cursor: pointer;
+  outline: none;
+  align-self: center;
+  display: flex;
+  min-height: 2.25rem;
+}
+
+.wrapper {
+  @include label();
+  @include font-size(-1);
+  position: relative;
+  display: inline-block;
+  padding: 0.125rem 0.25rem;
+  color: $darker-gray;
+  align-self: center;
+  &:hover,
+  &.is-focused {
+    background: $red;
+    color: white;
+    .svg-icon {
+      fill: $white;
+    }
+  }
+
+  &.is-disabled {
+    cursor: default;
+    pointer-events: none;
+    opacity: 0.35;
+  }
+}
+
+.svg-icon {
+  display: inline-block;
+  vertical-align: middle;
+  fill: currentColor;
+  pointer-events: none;
+  margin-top: 0;
+  left: 5px;
+}

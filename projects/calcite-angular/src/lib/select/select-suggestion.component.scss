@@ -1,0 +1,79 @@
+@import "../../../../../node_modules/calcite-web/dist/sass/calcite-web/imports";
+
+:host {
+  display: block;
+  cursor: pointer;
+}
+
+.filter-dropdown-link {
+  @include text-ellipsis;
+
+  border: none;
+
+  .filter-link-check {
+    visibility: hidden;
+  }
+
+  &:hover,
+  &.is-focused {
+    background: $lightest-blue;
+    color: $darkest-gray;
+    .filter-link-check {
+      fill: $darkest-gray;
+      visibility: visible;
+    }
+  }
+
+  &.is-selected {
+    background: $light-blue;
+    color: white;
+    .filter-link-check {
+      fill: $white;
+      visibility: visible;
+    }
+    .filter-link-close {
+      fill: white;
+    }
+    &:hover,
+    &.is-focused {
+      background: $light-blue;
+      color: white;
+      text-decoration: underline;
+      .filter-link-close {
+        fill: $red;
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+  }
+
+  &:focus,
+  &.is-focused {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+.filter-link-close {
+  @include filter-link-close();
+
+  &:hover {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+.filter-link-check {
+  @include filter-link-check();
+  opacity: 1;
+  visibility: visible;
+  margin-top: 3px;
+  left: 4px;
+}
+
+.svg-icon {
+  display: inline-block;
+  vertical-align: baseline;
+  fill: currentColor;
+  pointer-events: none;
+}

@@ -1,0 +1,176 @@
+@import "../../../../../node_modules/calcite-web/dist/sass/calcite-web/imports";
+
+:host {
+  display: block;
+}
+
+:host(.is-disabled) {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.side-nav {
+  @include side-nav;
+}
+
+input[type="text"] {
+  @include box-sizing(border-box);
+  width: 100%;
+  vertical-align: baseline;
+  margin: $baseline * 0.25 0 0 0;
+  box-shadow: none;
+  display: inline-block;
+  padding: 0 $baseline / 5;
+  font-size: modular-scale(0);
+  font-family: $avenir-family;
+  color: $darkest-gray;
+  border: none;
+  -webkit-appearance: textfield;
+  height: 2.125rem;
+  margin-top: 0;
+  &:focus {
+    outline: none;
+    box-shadow: none;
+  }
+}
+
+button {
+  @include btn();
+  @include btn-transparent();
+  color: $dark-gray;
+  border-left: 1px solid $lightest-gray;
+  padding-top: $baseline/6;
+  padding-bottom: $baseline/6;
+}
+
+.selections-external {
+  display: -ms-flexbox;
+  display: flex;
+
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+
+  calcite-selected-option {
+    margin: 0 0.25rem 0 0;
+  }
+}
+
+.selections-internal {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/deep/ .input-group {
+  display: -ms-flexbox;
+  display: flex;
+
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+
+  width: 100%;
+  margin-top: 0;
+
+  .input-group-input {
+    display: -ms-flexbox;
+    display: flex;
+
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+
+    max-width: calc(100% - 50px);
+
+    input {
+      align-self: center;
+      -ms-flex: 1;
+      flex: 1;
+      min-width: 35%;
+    }
+    calcite-selected-option {
+      margin: 0 0 0 0.25rem;
+    }
+  }
+
+  .input-group-button {
+    //display: block;
+  }
+}
+
+.filter-dropdown-list {
+  @include filter-dropdown-list();
+  background: $white;
+  display: block;
+  position: relative;
+  border: 1px solid $light-gray;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
+  overflow: visible;
+  z-index: auto;
+  &.is-active {
+    border-color: $blue;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05),
+      0 0 5px rgba(81, 167, 232, 0.5);
+
+    .filter-dropdown-inner-list {
+      position: absolute;
+      display: block;
+      width: 100%;
+      border: 1px solid $blue;
+      left: -1px;
+      z-index: 1;
+      border-top-color: $lighter-gray;
+      box-shadow: 0 0 5px rgba(81, 167, 232, 0.5);
+    }
+  }
+}
+
+.filter-dropdown-inner-list {
+  @include filter-dropdown-inner-list();
+  display: none;
+}
+
+.svg-icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  vertical-align: baseline;
+  fill: currentColor;
+  pointer-events: none;
+}
+
+calcite-selected-option {
+  cursor: pointer;
+  outline: none;
+  align-self: center;
+  display: flex;
+  min-height: 2.125rem;
+
+  calcite-selected-option-wrapper {
+    @include label();
+    @include font-size(-1);
+    position: relative;
+    display: inline-block;
+    padding: 0.125rem 0.25rem;
+    color: $darker-gray;
+    align-self: center;
+    &:hover,
+    &.is-focused {
+      background: $red;
+      color: white;
+      .svg-icon {
+        fill: $white;
+      }
+    }
+  }
+
+  calcite-selected-option-wrapper-remove-icon {
+    display: inline-block;
+    vertical-align: 0px;
+    fill: currentColor;
+    pointer-events: none;
+  }
+}
+
+.no-suggestions {
+  @include font-size(-2);
+  color: $light-gray;
+  padding: 0.25rem;
+}

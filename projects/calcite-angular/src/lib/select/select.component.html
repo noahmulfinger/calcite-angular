@@ -1,0 +1,56 @@
+<div *ngIf="display === 'external'" class="selections-external">
+  <calcite-selected-option
+    *ngFor="let item of value; let i = index; trackBy: trackByValue"
+    [label]="getLabelForValue(item)"
+    [value]="item"
+    [selected]="activeSelectedValue === item"
+    [disabled]="disabled"
+    (remove)="removeValue($event)"
+    (next)="selectNextValue($event)"
+    (previous)="selectPreviousValue($event)"></calcite-selected-option>
+</div>
+
+<div class="filter-dropdown-list" [ngClass]="{'is-active': showSuggestions && !disabled}">
+  <div class="input-group" [ngClass]="{'is-disabled': disabled}">
+    <div class="input-group-input">
+      <calcite-selected-option
+        *ngFor="let item of value; let i = index; trackBy: trackByValue"
+        [label]="getLabelForValue(item)"
+        [value]="item"
+        [ngClass]="{hide: display !== 'inline'}"
+        [selected]="activeSelectedValue === item"
+        (remove)="removeValue($event)"
+        (next)="selectNextValue($event)"
+        (previous)="selectPreviousValue($event)"
+        ></calcite-selected-option>
+
+      <input
+        #input
+        type="text"
+        [placeholder]="placeholder"
+        class="filter-dropdown-input"
+        role="textbox"
+        (blur)="onInputBlur($event)"
+        (click)="onClick($event)"
+        (keyup)="onInput($event)"
+        [disabled]="disabled">
+    </div>
+
+    <button class="input-group-button" type="button" tabindex="-1" (click)="toggleSuggestions()" [disabled]="disabled">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -10 32 40" class="svg-icon"><path d="M28 9v5L16 26 4 14V9l12 12L28 9z"/></svg>
+    </button>
+  </div>
+
+  <div class="filter-dropdown-inner-list">
+    <span *ngIf="!activeSuggestions.length && arbitrary" class="no-suggestions">No suggestions{{(input.value ? ', press enter to add "' + input.value + '"' : '.')}}</span>
+    <span *ngIf="!activeSuggestions.length && !arbitrary" class="no-suggestions">No suggestions.</span>
+
+    <calcite-select-suggestion
+      *ngFor="let suggestion of activeSuggestions; let i = index; trackBy: trackSuggetsionByValue"
+      [label]="suggestion.label"
+      [value]="suggestion.value"
+      [selected]="suggestion.selected"
+      [focused]="activeSuggestion?.value === suggestion.value"
+      (click)="onSuggestionClick(suggestion.value)"></calcite-select-suggestion>
+  </div>
+</div>

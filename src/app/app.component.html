@@ -2,14 +2,29 @@
   <h1>Calcite Angular Library</h1>
   <div class="column-6">
     <div class="trailer-1">
-      <span>Copyable text</span>
+      <h4>Copyable text</h4>
       <calcite-copyable-text value="Copyable text"></calcite-copyable-text>
     </div>
-    <div class="copyable-text-compact">
-      <span>Copyable text compact:</span>
+    <div class="copyable-text-compact trailer-1">
+      <span>Compact:</span>
       <calcite-copyable-text compact="true" value="Copyable text compact"></calcite-copyable-text>
     </div>
-
+    <div class="trailer-1">
+      <h4>Modal</h4>
+      <button class="btn" calciteModalToggle="modal">Open Modal</button>
+      <calcite-modal #modal name="modal">
+        <span>Modal text here</span>
+        <br>
+        <br>
+        <button class="btn" (click)="modal.toggle()">Close</button>
+      </calcite-modal>
+    </div>
+    <div class="trailer-1">
+      <h4>Select:</h4>
+      <span>Arbitrary: true, inline</span>
+      <calcite-select class="trailer-1" name="select" [arbitrary]="true" display="inline" [suggestions]="selectSuggestions"></calcite-select>
+      <span>Arbitrary: false, external</span>
+      <calcite-select name="select" [arbitrary]="false" display="external" [suggestions]="selectSuggestions"></calcite-select>
+    </div>
   </div>
-
 </div>

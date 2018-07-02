@@ -1,0 +1,45 @@
+@import "../../../../../node_modules/calcite-web/dist/sass/calcite-web/imports";
+
+.modal-overlay {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -ms-flex-align: center;
+  align-items: center;
+  overflow-y: unset;
+
+  &:before {
+    display: none;
+  }
+}
+
+.modal-content {
+  -ms-flex: 0 1 auto;
+  flex: 0 1 auto;
+  text-align: left;
+  overflow: visible;
+}
+
+.close-button {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 1000;
+
+  line-height: 0;
+
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover svg.svg-icon {
+    fill: $red;
+  }
+
+  .svg-icon {
+    padding-right: 0;
+  }
+}
